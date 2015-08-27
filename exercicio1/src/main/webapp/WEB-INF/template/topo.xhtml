@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:body class="body">
+        
+        <ui:composition>
+
+            <h:form id="header">
+
+                <div id="top-nav" class="navbar navbar-inverse navbar-static-top">
+
+                    <div class="container-fluid">
+
+                        <div class="navbar-header">
+
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>     
+                            
+                            <p:commandLink id="lnkHome" action="#{redirectImpl.home()}" styleClass="fonte-topo-esquerdo navbar-brand" value="Painel de Controle"/>
+                            
+                        </div>
+
+                        <div class="navbar-collapse collapse">
+
+                            <ul class="nav navbar-nav navbar-right"> 
+                                <li><p:commandLink styleClass="fonte-topo-direito glyphicon glyphicon-user" value="Administrador" /></li>
+                                <li><p:commandLink value=" Logout" styleClass="fonte-topo-direito glyphicon glyphicon-log-out"/></li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </h:form>
+
+        </ui:composition>
+    </h:body>
+</html>

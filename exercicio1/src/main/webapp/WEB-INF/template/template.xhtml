@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"      
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta charset="utf-8" />
+        <title>Exercicio Java Framework - Supera</title>
+        <meta name="generator" content="Bootply" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+        <link href="#{pageContext.request.contextPath}/exercicio1/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="#{pageContext.request.contextPath}/exercicio1/css/styles.css" rel="stylesheet" />
+
+        <script src="#{pageContext.request.contextPath}/exercicio1/js/jquery-2.1.4.min.js"></script>
+        <script src="#{pageContext.request.contextPath}/exercicio1/js/bootstrap.min.js"></script>
+        <script src="#{pageContext.request.contextPath}/exercicio1/js/scripts.js"></script>
+    </h:head>
+
+    <h:body class="body">
+        <!-- header -->
+
+        <div id="header">
+            <ui:insert name="topo">
+                <ui:include src="/WEB-INF/template/topo.xhtml" />
+            </ui:insert>				
+        </div>
+        <!-- /header -->
+
+        <!-- left column -->
+        <div class="container-fluid">
+
+            <div class="row">
+                
+                <div class="col-sm-3">
+                    <div id="menu-esquerdo">
+                        <ui:insert name="menu-esquerdo">
+                            <ui:include src="/WEB-INF/template/menu-esquerdo.xhtml" />
+                        </ui:insert>				
+                    </div>
+                </div>
+                
+                <div class="col-sm-9">
+                    <div id="formulario">
+                        <ui:insert name="formulario">
+                            <ui:include src="/WEB-INF/template/formulario-base.xhtml" />
+                        </ui:insert>				
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /left column -->
+
+        <!-- footer -->
+        <div id="rodape">
+            <ui:insert name="rodape">
+                <ui:include src="/WEB-INF/template/rodape.xhtml" />
+            </ui:insert>				
+        </div>
+        <!-- /footer -->
+
+    </h:body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <navigation-rule>
+				
+        <navigation-case> 
+            
+            <from-action>#{redirectImpl.home()}</from-action>	
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.jsp</to-view-id>    
+                  
+        </navigation-case>
+        
+        <navigation-case> 
+            
+            <from-action>#{redirectImpl.fornecedor()}</from-action>	
+            <from-outcome>form-handle-fornecedor</from-outcome>
+            <to-view-id>/pages/fornecedor/form-handle-fornecedor.jsp</to-view-id>    
+                  
+        </navigation-case>
+        
+        <navigation-case> 
+            
+            <from-action>#{redirectImpl.produto()}</from-action>	
+            <from-outcome>form-handle-produto</from-outcome>
+            <to-view-id>/pages/produto/form-handle-produto.jsp</to-view-id>    
+                  
+        </navigation-case>
+       		
+    </navigation-rule>
+
+</faces-config>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+        
+        <ui:composition>
+
+            <h:form id="menu-esquerdo">
+
+                <ul class="nav nav-stacked">
+
+                    <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#menu2"> Cadastro Geral <i class="glyphicon glyphicon-chevron-right"></i></a>
+
+                        <ul class="nav nav-stacked collapse" id="menu2">
+
+                            <li><p:commandLink action="#{redirectImpl.fornecedor()}" value="Fornecedor" /></li>
+
+                            <li><p:commandLink action="#{redirectImpl.produto()}" value="Produto" /></li>
+                        </ul>
+
+                    </li>
+
+                </ul> 
+
+                <hr />
+
+            </h:form> 
+
+        </ui:composition>
+        
+    </h:body>
+</html>
