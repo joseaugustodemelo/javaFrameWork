@@ -10,7 +10,7 @@ import javax.faces.validator.ValidatorException;
 
 
 @FacesValidator(value = "cnpjValidator")
-public class ValidadorCpfCnpj implements Validator {
+public class ValidatorCpfCnpj implements Validator {
 
     @Override
     public void validate(FacesContext facesContext, UIComponent componente, Object valor)

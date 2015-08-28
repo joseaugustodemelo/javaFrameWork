@@ -28,8 +28,8 @@
             <from-outcome>form-handle-produto</from-outcome>
             <to-view-id>/pages/produto/form-handle-produto.jsp</to-view-id>    
                   
-        </navigation-case>
-       		
+        </navigation-case>       
+                       		
     </navigation-rule>
 
 </faces-config>

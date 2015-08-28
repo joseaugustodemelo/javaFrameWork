@@ -19,21 +19,21 @@ public class ControllerImplFornecedor extends ControllerImpl<Fornecedor, Service
     private List<Fornecedor> listFornecedor;
 
     public ControllerImplFornecedor() {
-        
+
         super(new Fornecedor());
-        
+
     }
-    
-    public Fornecedor getFornecedor(){
-        
+
+    public Fornecedor getFornecedor() {
+
         return getEntidade();
-        
+
     }
-    
-    public void setFornecedor(Fornecedor fornecedor){
-        
+
+    public void setFornecedor(Fornecedor fornecedor) {
+
         setEntidade(fornecedor);
-        
+
     }
 
     public List<Fornecedor> getListFornecedor() {
@@ -44,18 +44,19 @@ public class ControllerImplFornecedor extends ControllerImpl<Fornecedor, Service
         this.listFornecedor = listFornecedor;
     }
 
-    @Override
-    public List<Fornecedor> findByName() {
-        return super.findByName(Fornecedor.BUSCAR_POR_NOME, getEntidade().getNomeFornecedor());
+    public List<Fornecedor> findByteste(Fornecedor fornecedor) {
+        return super.findByName(Fornecedor.BUSCAR_POR_NOME, getFornecedor().getNomeFornecedor());
     }
     
-    
+    @Override
+    public List<Fornecedor> findByName() {
+        return super.findByName(Fornecedor.BUSCAR_POR_NOME, getFornecedor().getNomeFornecedor());
+    }
 
     @Override
-    public void viewInsert() {
-		
-		enableInsert();
-		
+    public void viewInsert() {      
+        
+        enableInsert();
         
     }
 
