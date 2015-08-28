@@ -26,7 +26,7 @@ public class RedirectImpl implements Redirect, Serializable {
     }
 
     @Override
-    public void viewInsert() {
+    public void viewNew() {
         
     }
 

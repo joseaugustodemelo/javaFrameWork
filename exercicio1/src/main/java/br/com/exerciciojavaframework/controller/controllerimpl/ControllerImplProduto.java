@@ -40,7 +40,7 @@ implements Serializable, Redirect<Produto>{
     
     
     @Override
-    public void viewInsert() {
+    public void viewNew() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

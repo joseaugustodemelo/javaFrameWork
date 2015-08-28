@@ -16,5 +16,5 @@ public interface Action {
     
     void controllerButton(boolean showNew, boolean showSave, boolean showEdit, boolean showDelete, boolean showFind, boolean showReturn);
       
-	void enableInsert();
+	void enableNew();
 }

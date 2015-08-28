@@ -4,7 +4,7 @@ import br.com.exerciciojavaframework.modelo.entidade.Entidade;
 
 public interface Redirect <E extends Entidade> {
 	
-	void viewInsert();
+	void viewNew();
 	
 	String viewFind();
 	

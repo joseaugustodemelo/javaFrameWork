@@ -36,7 +36,7 @@ public class MascararCnpj implements Converter {
 	
 	private String mascarar(String value){
 	
-		return value.substring(0, 2) + "." + value.substring(2, 5) + "." + value.substring(5, 8) + "/" + value.substring(8, 11) + "-" + value.substring(11, 13);
+		return value.substring(0, 2) + "." + value.substring(2, 5) + "." + value.substring(5, 8) + "/" + value.substring(8, 12) + "-" + value.substring(12, 14);
 		
 	}
 					

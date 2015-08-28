@@ -13,12 +13,13 @@
                     xmlns:ui="http://java.sun.com/jsf/facelets">
 
         <ui:define name="formulario">
+
             <h:form class="form form-vertical" rendered="#{controllerImplFornecedor.showButtonNew()}">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="panel-title">
                             <i class="glyphicon glyphicon-search pull-right"></i>
-                            <h4>Manipular Fornecedor</h4>
+                            <h4>Consultar Fornecedor</h4>
                         </div>
                     </div>
                     <div class="panel-body">
@@ -33,27 +34,80 @@
                                              value="#{controllerImplFornecedor.fornecedor.nomeFornecedor}"
                                              required="true"
                                              requiredMessage="O nome do fornecedor deve ser preenchido!">
-                                    <f:validateLength minimum="3" />                                    
+                                    <f:validateLength minimum="3" />  
+									<f:converter converterId="converterCnpj"/>
                                 </p:inputText>                            
                             </div>
                         </div>
-  
 
                         <br />
-                    </div>				
-                </div>
-            </h:form> 
-            <hr class="separator" />
 
-            <h:form class="form form-vertical">
+						<div class="control-group">
+
+                            <div class="controls">
+								<h:commandButton class="btn btn-primary pull-left" 
+												 action="#{controllerImplFornecedor.findByName()}"                                          
+												 value="Consultar"/>
+
+
+							</div>
+
+						</div>
+						
+						<br />
+
+						<div class="control-group">
+
+							<div class="controls">
+
+								<br />
+
+								<p:dataTable rendered="#{not empty controllerImplFornecedor.listFornecedor}" var="fornecedor" value="#{controllerImplFornecedor.listFornecedor}" rows="20"
+											 paginator="true" emptyMessage="Nenhum resultado encontrado!" paginatorPosition="bottom"
+											 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+											 rowsPerPageTemplate="5,10,15" id="idFornecedores" rowKey="#{fornecedor.id}"
+											 currentPageReportTemplate="Página: {currentPage}/{totalPages}">
+
+									<p:column headerText="CNPJ" width="30%">
+										<h:outputText value="#{fornecedor.cnpj}">
+											<f:converter converterId="mascararCnpj"/>
+										</h:outputText>										  
+									</p:column>
+
+									<p:column headerText="Fornecedor" width="60%">
+										<h:outputText value="#{fornecedor.nomeFornecedor}" />
+									</p:column>                                       
+
+									<p:column headerText="Ação" width="10%">
+										<div>
+											<p:commandLink id="lnkEditar" 
+														   process="@this"
+														   styleClass="espaco-entre-botoes glyphicon glyphicon-pencil"/> 
+											<!--action=""--> 
+
+											<p:commandLink id="lnkVisualizar"  
+														   process="@this"
+														   styleClass="glyphicon glyphicon-eye-open"/> <!--action=""--> 
+										</div>
+									</p:column>
+
+								</p:dataTable>	
+
+							</div>
+						</div>
+
+					</div>				
+				</div>
+            </h:form> 
+
+
+
+            <h:form class="form form-vertical" rendered="#{controllerImplFornecedor.showButtonNew()}">
                 <div class="control-group">
                     <div class="controls">
-                        <h:commandButton class="btn btn-primary pull-left" 
-                                         action="#{controllerImplFornecedor.findByteste(controllerImplFornecedor.fornecedor)}"                                          
-                                         value="Consultar"/>
 
-                        <h:commandButton class="btn btn-primary pull-right" 
-                                         action="#{controllerImplFornecedor.viewInsert()}"
+                        <h:commandButton class="btn btn-primary pull-left" 
+                                         action="#{controllerImplFornecedor.viewNew()}"
                                          value="Novo"/> 
 
                     </div>
@@ -61,47 +115,57 @@
             </h:form>
 
 
-            <br />
-
-            <h:form class="form form-vertical">
-                <div class="control-group">	
-                    <br /> 
-                    <div class="controls">
-
-                        <p:dataTable rendered="#{not empty controllerImplFornecedor.listFornecedor}" var="fornecedor" value="#{controllerImplFornecedor.listFornecedor}" rows="20"
-                                     paginator="true" emptyMessage="Nenhum resultado encontrado!" paginatorPosition="bottom"
-                                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                     rowsPerPageTemplate="5,10,15" id="idFornecedores" rowKey="#{fornecedor.id}"
-                                     currentPageReportTemplate="Página: {currentPage}/{totalPages}">
-
-                            <p:column headerText="CNPJ" width="30%">
-                                <h:outputText value="#{fornecedor.cnpj}">
-                                    <f:converter converterId="mascararCnpj"/>
-                                </h:outputText>										  
-                            </p:column>
-
-                            <p:column headerText="Fornecedor" width="60%">
-                                <h:outputText value="#{fornecedor.nomeFornecedor}" />
-                            </p:column>                                       
-
-                            <p:column headerText="Ação" width="10%">
-                                <div>
-                                    <p:commandLink id="lnkEditar" 
-                                                   process="@this"
-                                                   styleClass="espaco-entre-botoes glyphicon glyphicon-pencil"/> 
-                                    <!--action=""--> 
-
-                                    <p:commandLink id="lnkVisualizar"  
-                                                   process="@this"
-                                                   styleClass="glyphicon glyphicon-eye-open"/> <!--action=""--> 
-                                </div>
-                            </p:column>
-
-                        </p:dataTable>								
-
+			<h:form class="form form-vertical" rendered="#{controllerImplFornecedor.showButtonSave()}">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <i class="glyphicon glyphicon-search pull-right"></i>
+                            <h4>Inserir Fornecedor</h4>
+                        </div>
                     </div>
-                </div>
-            </h:form>
+                    <div class="panel-body">
+
+                        <p:messages id="mensagem" /> 
+
+						<div class="control-group">
+                            <p:outputLabel value="CNPJ" for="idCNPJFornecedor" />
+                            <div class="controls">
+                                <p:inputText id="idCNPJFornecedor" type="text"
+                                             class="form-control" placeholder="CNPJ"                                             
+                                             value="#{controllerImplFornecedor.fornecedor.cnpj}"
+                                             required="true"
+                                             requiredMessage="O cnpj do fornecedor deve ser preenchido!"> 
+									<f:validator validatorId="cnpjValidator"/>
+                                </p:inputText>                            
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <p:outputLabel value="Nome do Fornecedor" for="idNomeFornecedor" />
+                            <div class="controls">
+                                <p:inputText id="idNomeFornecedor" type="text"
+                                             class="form-control" placeholder="Nome do Forncedor"                                             
+                                             value="#{controllerImplFornecedor.fornecedor.nomeFornecedor}"
+                                             required="true"
+                                             requiredMessage="O nome do fornecedor deve ser preenchido!"> 
+									<f:validateLength minimum="5" maximum="99" />
+                                </p:inputText>                            
+                            </div>
+                        </div>
+
+                        <br />
+
+						<div class="control-group">
+
+                            <div class="controls">
+								<h:commandButton class="btn btn-primary pull-left" 
+												 action="#{controllerImplFornecedor.persist()}"                                          
+												 value="Salvar"/>
+							</div>
+                        </div>
+					</div>
+				</div>
+			</h:form>
 
         </ui:define>
 

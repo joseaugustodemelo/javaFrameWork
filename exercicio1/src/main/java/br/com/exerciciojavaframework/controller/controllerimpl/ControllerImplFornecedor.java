@@ -43,20 +43,16 @@ public class ControllerImplFornecedor extends ControllerImpl<Fornecedor, Service
     public void setListFornecedor(List<Fornecedor> listFornecedor) {
         this.listFornecedor = listFornecedor;
     }
-
-    public List<Fornecedor> findByteste(Fornecedor fornecedor) {
-        return super.findByName(Fornecedor.BUSCAR_POR_NOME, getFornecedor().getNomeFornecedor());
-    }
     
     @Override
     public List<Fornecedor> findByName() {
-        return super.findByName(Fornecedor.BUSCAR_POR_NOME, getFornecedor().getNomeFornecedor());
+        return listFornecedor = super.findByName(Fornecedor.BUSCAR_POR_NOME, getFornecedor().getNomeFornecedor());
     }
 
     @Override
-    public void viewInsert() {      
+    public void viewNew() {      
         
-        enableInsert();
+        enableNew();
         
     }
 

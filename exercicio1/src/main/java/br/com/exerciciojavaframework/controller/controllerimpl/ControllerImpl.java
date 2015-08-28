@@ -226,7 +226,7 @@ public class ControllerImpl<E extends Entidade, S extends ServiceImpl<E, DaoImpl
     }
 
     @Override
-    public void enableInsert() {
+    public void enableNew() {
         controllerButton(false, true, false, false, false, true);
     }
 
